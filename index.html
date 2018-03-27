@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author"content="zcg,13681237102@163.com"> 
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <title>掌门合作商</title>
+    <style>
+      #ieBox{
+        display: none;
+        padding: 100px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 9999999;
+        background-color: #fff;
+      }
+      #ieBox a{
+        color:#1bb4f0;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ieBox">
+      您的浏览器版本过低，
+      <a href="http://rj.baidu.com/soft/detail/14744.html?ald">建议使用Google浏览器浏览该网站.....</a>
+    </div>
+    <script>
+
+    function IEVersion() {
+          var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+          var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+          var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
+          var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+          if(isIE) {
+              var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+              reIE.test(userAgent);
+              var fIEVersion = parseFloat(RegExp["$1"]);
+              if(fIEVersion == 7) {
+                return 'ie';
+              } else if(fIEVersion == 8) {
+                return 'ie';
+              } else if(fIEVersion == 9) {
+                return 'ie';
+              } else if(fIEVersion == 10) {
+                return 'ie';
+              } else {
+                return 'ie';//IE版本<=7
+              }   
+          } else if(isEdge) {
+              return 'edge';//edge
+          } else if(isIE11) {
+              return 11; //IE11  
+          }else{
+              return -1;//不是ie浏览器
+          }
+      }
+      var ieV = IEVersion(); //是否ie 10以下
+      var ieBox = document.getElementById('ieBox')
+      if (ieV === 'ie'){
+        ieBox.style.display = 'block'
+      }
+    </script>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
